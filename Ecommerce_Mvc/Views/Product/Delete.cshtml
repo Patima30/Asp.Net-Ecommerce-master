@@ -1,0 +1,232 @@
+﻿@using Ecommerce_Mvc.ViewModel
+@model ProductViewModel
+@{
+    ViewData["Title"] = "Delete Product";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Delete Page</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #0c0c0c;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .layout_padding {
+            padding: 70px 0;
+        }
+
+        .layout_padding2 {
+            padding: 75px 0;
+        }
+
+        .layout_padding2-top {
+            padding-top: 75px;
+        }
+
+        .layout_padding2-bottom {
+            padding-bottom: 75px;
+        }
+
+        .layout_padding-top {
+            padding-top: 90px;
+        }
+
+        .layout_padding-bottom {
+            padding-bottom: 90px;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .heading_container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+            .heading_container h2 {
+                position: relative;
+                margin-bottom: 0;
+                font-size: 3.5rem;
+                font-weight: bold;
+            }
+
+                .heading_container h2::after {
+                    content: "";
+                    display: block;
+                    width: 70px;
+                    height: 5px;
+                    background: #296236;
+                    margin: 10px auto 10px;
+                }
+
+                .heading_container h2 span {
+                    color: #296236;
+                }
+
+            .heading_container p {
+                margin-top: 10px;
+                margin-bottom: 0;
+            }
+
+            .heading_container.heading_center {
+                align-items: center;
+                text-align: center;
+            }
+
+        a,
+        a:hover,
+        a:focus {
+            text-decoration: none;
+        }
+
+            a:hover,
+            a:focus {
+                color: initial;
+            }
+
+        .btn,
+        .btn:focus {
+            outline: none !important;
+            box-shadow: none;
+        }
+
+        .hero_area {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub_page .hero_area {
+            min-height: auto;
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        .header_section {
+            padding: 15px 0;
+        }
+
+            .header_section .container-fluid {
+                padding-right: 25px;
+                padding-left: 25px;
+            }
+
+        .inner_page_head {
+            background: #296236;
+            text-align: center;
+            color: #fff;
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+
+            .inner_page_head h3 {
+                font-size: 42px;
+                font-weight: 800;
+            }
+
+        /* Add your existing styles for the header and other sections here */
+
+        .why_section.layout_padding {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .why_section .container {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .why_section form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .btn-primary {
+            background-color: #296236;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .btn-primary:hover {
+                background-color: #296236;
+            }
+    </style>
+</head>
+<body class="sub_page">
+
+    <!-- inner page section -->
+    <section class="inner_page_head">
+        <div class="container_fuild">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <h3>Delete Product</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end inner page section -->
+
+    <!-- why section -->
+    <section class="why_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="full">
+                        <form method="post" asp-action="DeleteProduct">
+                            <input asp-for="Id" hidden />
+
+                            <div class="card" style="width: 18rem;">
+                                <img src="@Model.Image" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Model.Name</h5>
+                                    <p class="card-text">@Model.Description</p>
+                                    <p class="card-text"> <strong>Price:</strong>@Model.Price</p>
+                                    <p class="card-text"><strong>Color:</strong>@Model.Color</p>
+                                    <button type="submit" class="btn btn-primary mt-3">Delete</button>
+                                    <a asp-controller="Product" asp-action="Index" >Back To List</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
